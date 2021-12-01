@@ -29,6 +29,7 @@ export function startHmrEngine(
     const isBubbled = visited.size > 0;
     if (node && node.isHmrEnabled) {
       hmrEngine.broadcastMessage({type: 'update', url, bubbled: isBubbled});
+      visited.add('RELOAD_BROADCASTED');
     }
     visited.add(url);
     if (node && node.isHmrAccepted) {
